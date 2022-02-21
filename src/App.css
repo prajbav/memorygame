@@ -1,7 +1,8 @@
 .App {
   text-align: center;
-  margin: 40px auto;
+  margin: 0 auto;
   max-width: 860px;
+  position: relative;
 }
 
 button {
@@ -9,12 +10,13 @@ button {
   border-radius: 4px;
   border: 2px solid rgb(13, 13, 14);
   cursor: pointer;
+  font-size: 2em;
   font-weight: bold;
 }
 button:hover {
   background: rgb(174, 184, 231);
   color: rgb(48, 3, 40);
-  font-size: 1rem;
+  font-size: 2.2em;
   font-weight: bold;
 }
 .back {
@@ -25,23 +27,38 @@ button:hover {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
   margin-top: 40px;
+  align-items: center;
 }
-/*
-.card div {
-  height: 220px;
-  width: 220px;
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#overlay {
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(86 71 209 / 50%);
+  z-index: 2;
   cursor: pointer;
 }
-
-.card img {
-  width: 200px;
-  max-width: 100%;
-  border: 2px solid red;
-  height: auto;
-  object-fit: contain;
-  max-height: 100%;
-} */
-
+.won-text {
+  font-weight: bolder;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 5em;
+  color: white;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
 .card {
   position: relative;
 }
@@ -50,14 +67,12 @@ button:hover {
   display: block;
   border: 2px solid #fff;
   border-radius: 6px;
-  object-fit: contain;
-  height: 250px;
-  /* max-height: 100%; */
+  object-fit: scale-down;
+  height: 100%;
 }
 
 .card .front {
   transform: rotateY(90deg);
-  cursor: pointer;
   position: absolute;
   transition: all ease-in 0.2s;
 }
@@ -70,9 +85,29 @@ button:hover {
 .card .back {
   transition: all ease-in 0.2s;
   transition-delay: 0.2s;
+  cursor: pointer;
 }
 
 .flipped .back {
   transform: rotateY(90deg);
   transition-delay: 0.2s;
+}
+
+/* .container {
+  width: 50%;
+  height: 50%;
+} */
+
+.menu-info {
+  font-size: 1em;
+}
+.turns-button {
+  float: right;
+  font-size: 1.5em;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
